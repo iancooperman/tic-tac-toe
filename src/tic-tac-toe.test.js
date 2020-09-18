@@ -7,7 +7,7 @@ test('constructed board size equals inputted board size', () => {
 });
 
 test('board empty on initialization', () => {
-   let board = new TicTacToe();
+   let board = new TicTacToe(3);
    for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 2; j++) {
          expect(board.getSpace(i, j)).toEqual(boardSpaces.EMPTY);
