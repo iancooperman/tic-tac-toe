@@ -7,13 +7,10 @@ export const boardSpaces  = {
 }
 
 export class TicTacToe {
-    constructor(boardSize) {
-        this._boardSize = boardSize;
-
-        // initialize the board matrix
-        this._board = new Array(this._boardSize);
+    constructor(boardSize) { // initialize the board matrix
+        this._board = new Array(boardSize);
         for (let i = 0; i < this._board.length; i++) {
-            this._board[i] = Array.from(Array(this._boardSize), () => boardSpaces.EMPTY);
+            this._board[i] = Array.from(Array(boardSize), () => boardSpaces.EMPTY);
         }
 
         this._turn = boardSpaces.X;
@@ -25,7 +22,7 @@ export class TicTacToe {
     }
 
     get boardSize() {
-        return this._boardSize;
+        return this._board.length;
     }
 
     get turn() {
