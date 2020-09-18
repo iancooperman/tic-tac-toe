@@ -24,3 +24,10 @@ test('board reflects turns taken', () => {
    expect(board.space(1, 1)).toEqual(boardSpaces.O);
    expect(board.space(2, 2)).toEqual(boardSpaces.X);
 });
+
+
+test('same move cannot be played twice', () => {
+   let board = new TicTacToe(3);
+   board.move(0, 0);
+   expect(() => { board.move(0.0) }).toThrow();
+});
