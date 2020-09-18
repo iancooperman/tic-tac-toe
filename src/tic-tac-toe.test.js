@@ -31,3 +31,9 @@ test('same move cannot be played twice', () => {
    board.move(0, 0);
    expect(() => { board.move(0.0) }).toThrow();
 });
+
+test('move location cannot exceed board boundaries', () => {
+   let board = new TicTacToe(3);
+   expect(() => {board.move(0, 3)}).toThrow();
+   expect(() => {board.move(3, 0)}).toThrow();
+});
