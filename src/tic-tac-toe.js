@@ -18,7 +18,7 @@ export class TicTacToe {
 
         this._turn = boardSpaces.X;
 
-        this.getSpace = this.getSpace.bind(this);
+        this.getSpace = this.space.bind(this);
         this.move = this.move.bind(this);
         this.undo = this.undo.bind(this);
         this.copy = this.copy.bind(this);
@@ -32,7 +32,7 @@ export class TicTacToe {
         return this._turn
     }
 
-    getSpace(x, y) {
+    space(x, y) {
         return this._board[x][y];
     }
 
