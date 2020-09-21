@@ -94,16 +94,89 @@ export class TicTacToe {
     isWin() {
         // check rows
         for (let i = 0; i < this._board.length; i++) {
-            for (let j = 0; j < this._board.length - 1; j++) {
-                if (this._board[i][j + 1] !== this._board[i][j]) {
-                    
-                }
+            let rowWin = this.checkRow(i);
+            if (rowWin !== 0) {
+                return rowWin;
             }
-
         }
+
+        // check columns
+        for (let i = 0; i < this._board.length; i++) {
+            let columnWin = this.checkColumn(i);
+            if (columnWin !== 0) {
+                return columnWin;
+            }
+        }
+
+        // check diagonals
+        let negDiagWin = this.checkNegativeDiagonal();
+        if (negDiagWin !== 0) {
+            return negDiagWin;
+        }
+
+        let posDiagWin = this.checkPositiveDiagonal();
+        if (posDiagWin !== 0) {
+            return posDiagWin;
+        }
+
+        return boardSpaces.EMPTY;
+    }
+
+    // Same return values as isWin().
+    checkRow(x) {
+        for (let i = 0; i < this._board.length - 1; i++) {
+            if (this._board[x][i] !== this._board[x][i + 1]) {
+                return boardSpaces.EMPTY;
+            }
+        }
+
+        return this._board[x][0];
+    }
+
+    checkColumn(y) {
+        for (let i = 0; i < this._board.length - 1; i++) {
+            if (this._board[i][y] !== this._board[i + 1][y]) {
+                return boardSpaces.EMPTY;
+            }
+        }
+
+        return this._board[0][y];
+    }
+    
+    checkNegativeDiagonal() {
+        for (let i = 0; i < this._board.length - 1; i++) {
+            if (this._board[i][i] !== this._board[i + 1][i + 1]) {
+                return boardSpaces.EMPTY;
+            }
+        }
+
+        return this._board[0][0];
+    }
+
+    checkPositiveDiagonal() {
+        for (let i = 0; i < this._board.length - 1; i++) {
+            if (this._board[i][this._board.length - 1 - i] !== this._board[i + 1][this._board.length - i]) {
+                return boardSpaces.EMPTY;
+            }
+        }
+
+        return this._board[0][this._board.length - 1];
+    }
+
+    toString() {
+        let rows = new Array();
+        for (let i = 0; i < this._board.length; i++) {
+            let rowString = this._board[i].join(' ');
+            rows.push(rowString);
+        }
+
+        let boardString = rows.join('\n');
+        boardString = boardString.replace(/0/g, '-');
+        boardString = boardString.replace(/1/g, 'X');
+        boardString = boardString.replace(/2/g, 'O');
+        return boardString;
     }
 }
-
 // All this class does is store coordinates for moves taken.
 // There's no validation. That happens in `TicTacToe`
 class Move {
