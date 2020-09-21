@@ -75,9 +75,18 @@ export class TicTacToe {
         this._switchTurns();
     }
 
-    // TODO: Implement a copy-constructor-like method.
+    // Probably not the most efficient way, but it should work without needing to write helper methods.
     clone() {
-        return JSON.parse(JSON.stringify(this));
+        let clone = new TicTacToe(this.boardSize);
+        // replicate all the moves made from the original TicTacToe to the clone
+        this._moves.forEach((item, index) => {
+            let x = item.x;
+            let y = item.y;
+
+            clone.move(x, y);
+        });
+
+        return clone;
     }
 
     // TODO: Implement win checking.
