@@ -90,8 +90,17 @@ export class TicTacToe {
     }
 
     // TODO: Implement win checking.
+    // Returns 0 if no win, 1 if X won, and 2 if O won.
     isWin() {
+        // check rows
+        for (let i = 0; i < this._board.length; i++) {
+            for (let j = 0; j < this._board.length - 1; j++) {
+                if (this._board[i][j + 1] !== this._board[i][j]) {
+                    
+                }
+            }
 
+        }
     }
 }
 
