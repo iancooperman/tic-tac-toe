@@ -20,7 +20,7 @@ export class TicTacToe {
         this.getSpace = this.space.bind(this);
         this.move = this.move.bind(this);
         this.undo = this.undo.bind(this);
-        this.copy = this.copy.bind(this);
+        this.copy = this.clone.bind(this);
         this._switchTurns = this._switchTurns.bind(this);
     }
 
@@ -76,8 +76,8 @@ export class TicTacToe {
     }
 
     // TODO: Implement a copy-constructor-like method.
-    copy() {
-
+    clone() {
+        return JSON.parse(JSON.stringify(this));
     }
 
     // TODO: Implement win checking.

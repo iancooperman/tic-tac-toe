@@ -57,3 +57,27 @@ test('moves can\'t be undone if there are no moves to undo', () => {
    let board = new TicTacToe(3);
    expect(() => {board.undo()}).toThrow();
 });
+
+test('cloned TicTacToe object uses new 2D array', () => {
+   let board = new TicTacToe(3);
+   let clone = board.clone();
+
+   expect(Object.is(board._board, clone._board)).toEqual(false);
+});
+
+test('cloned TicTacToe object has same moves made', () => {
+   let board = new TicTacToe(3);
+   board.move(0, 0);
+   board.move(1, 1);
+   let clone = board.clone();
+   expect(clone.space(0, 0)).toEqual(boardSpaces.X);
+   expect(clone.space(0, 1)).toEqual(boardSpaces.EMPTY);
+   expect(clone.space(0, 2)).toEqual(boardSpaces.EMPTY);
+   expect(clone.space(1, 0)).toEqual(boardSpaces.EMPTY);
+   expect(clone.space(1, 0)).toEqual(boardSpaces.EMPTY);
+   expect(clone.space(1, 1)).toEqual(boardSpaces.O);
+   expect(clone.space(1, 2)).toEqual(boardSpaces.EMPTY);
+   expect(clone.space(2, 0)).toEqual(boardSpaces.EMPTY);
+   expect(clone.space(2, 1)).toEqual(boardSpaces.EMPTY);
+   expect(clone.space(2, 2)).toEqual(boardSpaces.EMPTY);
+});
