@@ -6,7 +6,7 @@ export const boardSpaces  = {
     O: 2
 }
 
-export class TicTacToe {
+class TicTacToe {
     constructor(boardSize) { // initialize the board matrix
         this._board = new Array(boardSize);
         for (let i = 0; i < this._board.length; i++) {
@@ -15,7 +15,7 @@ export class TicTacToe {
 
 
         this._turn = boardSpaces.X;
-        this._moves = new Array();
+        this._moves = [];
 
         this.getSpace = this.space.bind(this);
         this.move = this.move.bind(this);
@@ -164,7 +164,7 @@ export class TicTacToe {
     }
 
     toString() {
-        let rows = new Array();
+        let rows = [];
         for (let i = 0; i < this._board.length; i++) {
             let rowString = this._board[i].join(' ');
             rows.push(rowString);
@@ -177,6 +177,9 @@ export class TicTacToe {
         return boardString;
     }
 }
+
+export default TicTacToe;
+
 // All this class does is store coordinates for moves taken.
 // There's no validation. That happens in `TicTacToe`
 class Move {

@@ -1,4 +1,4 @@
-import {TicTacToe, boardSpaces} from "./tic-tac-toe";
+import {TicTacToe, boardSpaces} from "./TicTacToe";
 
 
 test('constructed board size equals inputted board size', () => {
