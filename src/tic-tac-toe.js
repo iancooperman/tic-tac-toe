@@ -155,7 +155,7 @@ export class TicTacToe {
 
     checkPositiveDiagonal() {
         for (let i = 0; i < this._board.length - 1; i++) {
-            if (this._board[i][this._board.length - 1 - i] !== this._board[i + 1][this._board.length - i]) {
+            if (this._board[i][this._board.length - 1 - i] !== this._board[i + 1][this._board.length - 2 - i]) {
                 return boardSpaces.EMPTY;
             }
         }

@@ -99,13 +99,34 @@ test('win with small board', () => {
    expect(board.isWin()).toEqual(boardSpaces.X);
 });
 
-test('toString', () => {
+test('negative diagonal win', () => {
    let board = new TicTacToe(3);
-   // for (let i = 0; i < board.boardSize - 1; i++) {
-   //    for (let j = 0; j < board.boardSize; j++) {
-   //       board.move(i, j);
-   //    }
-   // }
+   board.move(0, 0);
+   board.move(1, 0);
+   board.move(1, 1);
+   board.move(2, 0);
+   board.move(2, 2);
+   expect(board.isWin()).toEqual(boardSpaces.X);
+});
 
+test('positive diagonal win', () => {
+   let board = new TicTacToe(3);
+   board.move(2, 0);
+   board.move(1, 0);
+   board.move(1, 1);
+   board.move(1, 2);
+   board.move(0, 2);
    console.log(board.toString());
-})
+   expect(board.isWin()).toEqual(boardSpaces.X);
+});
+
+// test('toString', () => {
+//    let board = new TicTacToe(3);
+//    for (let i = 0; i < board.boardSize - 1; i++) {
+//       for (let j = 0; j < board.boardSize; j++) {
+//          board.move(i, j);
+//       }
+//    }
+
+//    console.log(board.toString());
+// });
