@@ -13,7 +13,13 @@ class TicTacToeBoard extends React.Component {
     }
 
     render() {
-        return (<TicTacToeSpace mark={2}/>);
+        return (
+            <div>
+                <TicTacToeSpace mark={1}/>
+                <TicTacToeSpace mark={2}/>
+                <TicTacToeSpace mark={0}/>
+            </div>
+        );
     }
 }
 
