@@ -1,5 +1,6 @@
 import React from 'react';
 import {boardSpaces} from './TicTacToe'
+import './TicTacToeSpace.css'
 
 
 class TicTacToeSpace extends React.Component {
@@ -12,7 +13,7 @@ class TicTacToeSpace extends React.Component {
 
     render() {
         let renderMark = (this.state.mark === boardSpaces.X) ? "X" : (this.state.mark === boardSpaces.O) ? "O" : "-";
-        return (<h1>{renderMark}</h1>);
+        return (<div className="tic-tac-toe-space">{renderMark}</div>);
     }
 }
 

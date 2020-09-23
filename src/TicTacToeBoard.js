@@ -1,6 +1,7 @@
 import React from 'react';
 import TicTacToe from './TicTacToe';
 import TicTacToeSpace from './TicTacToeSpace';
+import './TicTacToeBoard.css'
 
 
 class TicTacToeBoard extends React.Component {
@@ -8,16 +9,23 @@ class TicTacToeBoard extends React.Component {
         super(props);
         this.state = {
             boardSize: props.boardSize,
-            board: new TicTacToe(props.boardSize)
+            board: new TicTacToe(props.boardSize),
         };
     }
 
     render() {
         return (
-            <div>
-                <TicTacToeSpace mark={1}/>
-                <TicTacToeSpace mark={2}/>
-                <TicTacToeSpace mark={0}/>
+            <div className="tic-tac-toe-board">
+                <div className="tic-tac-toe-row">
+                    <TicTacToeSpace mark={1}/>
+                    <TicTacToeSpace mark={2}/>
+                    <TicTacToeSpace mark={0}/>
+                </div>
+                <div className="tic-tac-toe-row">
+                    <TicTacToeSpace mark={1}/>
+                    <TicTacToeSpace mark={2}/>
+                    <TicTacToeSpace mark={0}/>
+                </div>
             </div>
         );
     }

@@ -1,0 +1,10 @@
+.tic-tac-toe-space {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 100px;
+    line-height: 100px;
+    float: left;
+    border: 2px solid black;
+    margin: 2px;
+}
