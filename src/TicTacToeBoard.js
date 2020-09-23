@@ -1,5 +1,6 @@
 import React from 'react';
 import TicTacToe from './TicTacToe';
+import TicTacToeSpace from './TicTacToeSpace';
 
 
 class TicTacToeBoard extends React.Component {
@@ -12,7 +13,7 @@ class TicTacToeBoard extends React.Component {
     }
 
     render() {
-        return (<p>{this.state.board.toString()}</p>);
+        return (<TicTacToeSpace mark={2}/>);
     }
 }
 
