@@ -38,13 +38,13 @@ class TicTacToe {
 
     move(x, y) {
         if (x >= this._boardSize) {
-            throw "Provided x value exceeds size of Tic-Tac-Toe board!";
+            throw new Error("Provided x value exceeds size of Tic-Tac-Toe board!");
         }
         else if (y >= this._boardSize) {
-            throw "Provided y value exceeds size of Tic-Tac-Toe board!";
+            throw new Error("Provided y value exceeds size of Tic-Tac-ToToe board!");
         }
         else if (this._board[x][y] !== boardSpaces.EMPTY) {
-            throw "Board location already played!";
+            throw new Error("Board location already played!");
         }
         else { // move is acceptable
             // mark the board at specified location
@@ -64,7 +64,7 @@ class TicTacToe {
     undo() {
         // If there are no moves to undo, just say so!
         if (this._moves.length === 0) {
-            throw "No moves to undo!"
+            throw new Error("No moves to undo!");
         }
 
         let previousMove = this._moves.pop();
